@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+import React from "react";
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { estructuradedatos, estaticas,dinamicas}from "./pages/estructuradedatos";
+import { tablahash } from "./pages/tablahash";
+import Grupo from "./pages/Grupo";
+   function App(){
+   return(
+      <Router>
+      <Sidebar />
+      <Switch>
+        <Route path="/estructuradedatos" exact component={estructuradedatos} />
+        <Route path="/estructuradedatos/estaticas" exact component={estaticas} />
+        <Route path="/estructuradedatos/dinamicas/" exact component={dinamicas} />
+        <Route path="/tablahash" exact component={tablahash} />
+        <Route path="/grupo" exact component={Grupo} />
+      </Switch>
+    </Router>
   );
 }
 
-export default App;
+export default App
